@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_custom_ctas",
+  "info": {
+    "displayName": "Custom CTA",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
