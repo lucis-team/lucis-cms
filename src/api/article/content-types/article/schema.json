@@ -72,20 +72,9 @@
         }
       },
       "components": [
-        "shared.media",
-        "shared.quote",
-        "shared.rich-text",
-        "shared.slider"
+        "shared.custom-cta",
+        "shared.rich-text"
       ]
-    },
-    "content": {
-      "type": "richtext",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true
     }
   }
 }
