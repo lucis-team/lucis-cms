@@ -269,6 +269,135 @@ async function main() {
 }
 
 
+async function importInfluencers() {
+  // Only run if environment variable is set
+  if (process.env.RUN_INFLUENCER_IMPORT !== 'true') {
+    return;
+  }
+
+  console.log('\n🚀 Starting Influencer Import via Bootstrap...\n');
+
+  const DEFAULT_LOCALE = 'en';
+  const SECONDARY_LOCALE = 'fr';
+  const JSON_FILE = path.join(__dirname, '../influencers-data.json');
+
+  try {
+    // Load JSON
+    console.log('📖 Reading influencers data...');
+    const rawData = fs.readFileSync(JSON_FILE, 'utf-8');
+    const { influencers } = JSON.parse(rawData);
+    console.log(`✓ Loaded ${influencers.length} influencers\n`);
+
+    // Verify locales
+    console.log('🌍 Verifying locales...');
+    const locales = await strapi.plugins.i18n.services.locales.find();
+    const localeMap = new Map(locales.map(l => [l.code, l]));
+
+    if (!localeMap.has(DEFAULT_LOCALE)) {
+      throw new Error(`Default locale "${DEFAULT_LOCALE}" not found!`);
+    }
+
+    const hasSecondaryLocale = localeMap.has(SECONDARY_LOCALE);
+    if (!hasSecondaryLocale) {
+      console.warn(`⚠️  Secondary locale "${SECONDARY_LOCALE}" not found - will skip French translations`);
+    }
+    console.log(`✓ Available locales: ${Array.from(localeMap.keys()).join(', ')}\n`);
+
+    // Import stats
+    let imported = 0;
+    let failed = 0;
+
+    // Import each influencer
+    for (const [index, influencerData] of influencers.entries()) {
+      try {
+        console.log(`[${index + 1}/${influencers.length}] Processing: ${influencerData.name} (${influencerData.slug})`);
+
+        // Check if already exists
+        const existing = await strapi.db.query('api::influencer.influencer').findOne({
+          where: { slug: influencerData.slug },
+        });
+
+        if (existing) {
+          console.log(`  ⚠️  Already exists, skipping...`);
+          continue;
+        }
+
+        // Create English entry
+        const enData = influencerData.translations.en;
+        const defaultEntry = await strapi.documents('api::influencer.influencer').create({
+          data: {
+            slug: influencerData.slug,
+            name: influencerData.name,
+            code: influencerData.discount?.code || '',
+            percentage: influencerData.discount?.percentage || 0,
+            shortBio: enData.shortBio || '',
+            heroText: enData.heroText || '',
+            heroDescription: enData.heroDescription || '',
+            link: enData.influencerSection?.ctaLink || '',
+            metadata: influencerData.metadata ? {
+              metaTitle: influencerData.metadata.title || influencerData.name,
+              metaDescription: influencerData.metadata.description || enData.shortBio || '',
+            } : null,
+            publishedAt: null, // Keep as draft
+          },
+          locale: DEFAULT_LOCALE,
+        });
+
+        console.log(`  ✓ Created ${DEFAULT_LOCALE} entry (ID: ${defaultEntry.documentId})`);
+
+        // Create French localization using UPDATE method (creates if doesn't exist)
+        if (hasSecondaryLocale && influencerData.translations.fr) {
+          const frData = influencerData.translations.fr;
+          const frEntry = await strapi.documents('api::influencer.influencer').update({
+            documentId: defaultEntry.documentId,
+            locale: SECONDARY_LOCALE,
+            data: {
+              slug: influencerData.slug,
+              name: influencerData.name,
+              code: influencerData.discount?.code || '',
+              percentage: influencerData.discount?.percentage || 0,
+              shortBio: frData.shortBio || '',
+              heroText: frData.heroText || '',
+              heroDescription: frData.heroDescription || '',
+              link: frData.influencerSection?.ctaLink || '',
+              metadata: influencerData.metadata ? {
+                metaTitle: influencerData.metadata.title || influencerData.name,
+                metaDescription: influencerData.metadata.description || frData.shortBio || '',
+              } : null,
+              publishedAt: null,
+            },
+          });
+
+          console.log(`  ✓ Created ${SECONDARY_LOCALE} localization (same documentId: ${frEntry.documentId})`);
+        }
+
+        imported++;
+        console.log(`  ✅ Success!\n`);
+
+      } catch (error) {
+        failed++;
+        console.error(`  ❌ Failed: ${error.message}`);
+      }
+    }
+
+    // Summary
+    console.log('\n' + '='.repeat(60));
+    console.log('📊 Influencer Import Summary');
+    console.log('='.repeat(60));
+    console.log(`✓ Successfully imported: ${imported}`);
+    console.log(`✗ Failed: ${failed}`);
+    console.log(`📋 Total processed: ${influencers.length}`);
+    console.log('='.repeat(60) + '\n');
+
+    console.log('✨ Influencer import completed!\n');
+
+  } catch (error) {
+    console.error('\n❌ Influencer import failed:', error.message);
+    console.error(error.stack);
+  }
+}
+
 module.exports = async () => {
   await seedExampleApp();
+  await importInfluencers();
 };
