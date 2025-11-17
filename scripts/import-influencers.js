@@ -159,37 +159,31 @@ const importInfluencers = async () => {
 
         console.log(`  ✓ Created ${CONFIG.DEFAULT_LOCALE} entry (ID: ${defaultEntry.documentId})`);
 
-        // Create French localization if available using UPDATE (creates if doesn't exist)
+        // Create French localization using direct DB query (workaround for Strapi v5 bug)
         if (hasSecondaryLocale && influencerData.translations.fr) {
           const frData = influencerData.translations.fr;
 
-          const frLocalizationData = {
-            // Core fields (must match)
-            slug: influencerData.slug,
-            name: influencerData.name,
-            code: influencerData.discount?.code || '',
-            percentage: influencerData.discount?.percentage || 0,
-
-            // Localized fields (French)
-            shortBio: frData.shortBio || '',
-            heroText: frData.heroText || '',
-            heroDescription: frData.heroDescription || '',
-            link: frData.influencerSection?.ctaLink || '',
-
-            // Metadata (SEO component) - localized (same for both locales for now)
-            metadata: influencerData.metadata ? {
-              metaTitle: influencerData.metadata.title || influencerData.name,
-              metaDescription: influencerData.metadata.description || frData.shortBio || '',
-            } : null,
-
-            // System fields
-            publishedAt: CONFIG.AUTO_PUBLISH ? new Date() : null,
-          };
-
-          const frEntry = await strapi.documents('api::influencer.influencer').update({
-            documentId: defaultEntry.documentId,
-            locale: CONFIG.SECONDARY_LOCALE,
-            data: frLocalizationData,
+          const frEntry = await strapi.db.query('api::influencer.influencer').create({
+            data: {
+              documentId: defaultEntry.documentId, // Same documentId for linking
+              locale: CONFIG.SECONDARY_LOCALE,
+              // Core fields (same as EN)
+              slug: influencerData.slug,
+              name: influencerData.name,
+              code: influencerData.discount?.code || '',
+              percentage: influencerData.discount?.percentage || 0,
+              // Localized fields (French)
+              shortBio: frData.shortBio || '',
+              heroText: frData.heroText || '',
+              heroDescription: frData.heroDescription || '',
+              link: frData.influencerSection?.ctaLink || '',
+              // Metadata (SEO component) - localized
+              metadata: influencerData.metadata ? {
+                metaTitle: influencerData.metadata.title || influencerData.name,
+                metaDescription: influencerData.metadata.description || frData.shortBio || '',
+              } : null,
+              publishedAt: CONFIG.AUTO_PUBLISH ? new Date() : null,
+            },
           });
 
           console.log(`  ✓ Created ${CONFIG.SECONDARY_LOCALE} localization (same documentId: ${frEntry.documentId})`);
