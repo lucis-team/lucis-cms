@@ -680,7 +680,6 @@ export interface ApiInfluencerInfluencer extends Struct.CollectionTypeSchema {
       'api::influencer.influencer'
     >;
     metadata: Schema.Attribute.Component<'shared.seo', false> &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

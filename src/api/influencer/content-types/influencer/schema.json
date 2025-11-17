@@ -70,7 +70,7 @@
       },
       "component": "shared.seo",
       "repeatable": false,
-      "required": true
+      "required": false
     }
   }
 }
