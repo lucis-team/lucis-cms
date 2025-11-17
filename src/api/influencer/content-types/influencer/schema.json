@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "influencers",
+  "info": {
+    "singularName": "influencer",
+    "pluralName": "influencers",
+    "displayName": "Influencer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "percentage": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 100
+    },
+    "link": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "heroText": {
+      "type": "string",
+      "required": true
+    },
+    "heroDescription": {
+      "type": "text",
+      "required": true
+    },
+    "shortBio": {
+      "type": "string"
+    }
+  }
+}
