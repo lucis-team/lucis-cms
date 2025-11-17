@@ -679,6 +679,13 @@ export interface ApiInfluencerInfluencer extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::influencer.influencer'
     >;
+    metadata: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     percentage: Schema.Attribute.Integer &
       Schema.Attribute.Required &
