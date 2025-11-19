@@ -10,9 +10,15 @@
  * Features:
  *   - Full i18n support (English/French)
  *   - Duplicate detection
+ *   - Component mapping (bulletPoints, metadata)
  *   - Comprehensive error handling
  *   - Import statistics
  *   - Dry run mode (set DRY_RUN=true)
+ *
+ * Data Mappings:
+ *   - translations.en/fr.influencerSection.bulletItems[] → bulletPoint1, bulletPoint2, bulletPoint3, bulletPoint4
+ *   - metadata → SEO component (metaTitle, metaDescription)
+ *   - discount → code, percentage fields
  */
 
 const { createStrapi, compileStrapi } = require('@strapi/strapi');
@@ -25,7 +31,7 @@ const CONFIG = {
   SECONDARY_LOCALE: 'fr',
   JSON_FILE: path.join(__dirname, '../influencers-data.json'),
   DRY_RUN: process.env.DRY_RUN === 'true',
-  AUTO_PUBLISH: 'true',
+  AUTO_PUBLISH: false,
 };
 
 /**
@@ -127,6 +133,10 @@ const importInfluencers = async () => {
 
         // Create default locale entry (English)
         const enData = influencerData.translations.en;
+
+        // Map bulletItems array to individual text fields
+        const bulletItems = enData.influencerSection?.bulletItems || [];
+
         const defaultData = {
           // Core non-localized fields
           slug: influencerData.slug,
@@ -139,6 +149,12 @@ const importInfluencers = async () => {
           heroText: enData.heroText || '',
           heroDescription: enData.heroDescription || '',
           link: enData.influencerSection?.ctaLink || '',
+
+          // Bullet points as individual fields - localized
+          bulletPoint1: bulletItems[0] || '',
+          bulletPoint2: bulletItems[1] || '',
+          bulletPoint3: bulletItems[2] || '',
+          bulletPoint4: bulletItems[3] || '',
 
           // Metadata (SEO component) - localized
           metadata: influencerData.metadata ? {
@@ -163,6 +179,9 @@ const importInfluencers = async () => {
         if (hasSecondaryLocale && influencerData.translations.fr) {
           const frData = influencerData.translations.fr;
 
+          // Map French bulletItems to individual text fields
+          const frBulletItems = frData.influencerSection?.bulletItems || [];
+
           const frEntry = await strapi.db.query('api::influencer.influencer').create({
             data: {
               documentId: defaultEntry.documentId, // Same documentId for linking
@@ -177,6 +196,11 @@ const importInfluencers = async () => {
               heroText: frData.heroText || '',
               heroDescription: frData.heroDescription || '',
               link: frData.influencerSection?.ctaLink || '',
+              // Bullet points as individual fields - localized (French)
+              bulletPoint1: frBulletItems[0] || '',
+              bulletPoint2: frBulletItems[1] || '',
+              bulletPoint3: frBulletItems[2] || '',
+              bulletPoint4: frBulletItems[3] || '',
               // Metadata (SEO component) - localized
               metadata: influencerData.metadata ? {
                 metaTitle: influencerData.metadata.title || influencerData.name,

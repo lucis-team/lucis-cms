@@ -13,7 +13,8 @@
     "import:influencers": "node scripts/import-influencers.js",
     "import:influencers:dry": "DRY_RUN=true node scripts/import-influencers.js",
     "import:influencers:publish": "AUTO_PUBLISH=true node scripts/import-influencers.js",
-    "cleanup:influencers": "node scripts/cleanup-influencers.js"
+    "cleanup:influencers": "node scripts/cleanup-influencers.js",
+    "verify:influencers": "node scripts/verify-influencers.js"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.28.0",

@@ -324,6 +324,10 @@ async function importInfluencers() {
 
         // Create English entry
         const enData = influencerData.translations.en;
+        
+        // Map bulletItems array to individual text fields
+        const bulletItems = enData.influencerSection?.bulletItems || [];
+        
         const defaultEntry = await strapi.documents('api::influencer.influencer').create({
           data: {
             slug: influencerData.slug,
@@ -334,6 +338,13 @@ async function importInfluencers() {
             heroText: enData.heroText || '',
             heroDescription: enData.heroDescription || '',
             link: enData.influencerSection?.ctaLink || '',
+            
+            // Bullet points as individual fields - localized
+            bulletPoint1: bulletItems[0] || '',
+            bulletPoint2: bulletItems[1] || '',
+            bulletPoint3: bulletItems[2] || '',
+            bulletPoint4: bulletItems[3] || '',
+            
             metadata: influencerData.metadata ? {
               metaTitle: influencerData.metadata.title || influencerData.name,
               metaDescription: influencerData.metadata.description || enData.shortBio || '',
@@ -348,6 +359,10 @@ async function importInfluencers() {
         // Create French localization using direct DB query (workaround for Strapi v5 bug)
         if (hasSecondaryLocale && influencerData.translations.fr) {
           const frData = influencerData.translations.fr;
+          
+          // Map French bulletItems to individual text fields
+          const frBulletItems = frData.influencerSection?.bulletItems || [];
+          
           const frEntry = await strapi.db.query('api::influencer.influencer').create({
             data: {
               documentId: defaultEntry.documentId, // Same documentId for linking
@@ -362,6 +377,13 @@ async function importInfluencers() {
               heroText: frData.heroText || '',
               heroDescription: frData.heroDescription || '',
               link: frData.influencerSection?.ctaLink || '',
+              
+              // Bullet points as individual fields - localized (French)
+              bulletPoint1: frBulletItems[0] || '',
+              bulletPoint2: frBulletItems[1] || '',
+              bulletPoint3: frBulletItems[2] || '',
+              bulletPoint4: frBulletItems[3] || '',
+              
               // Metadata (SEO component) - localized
               metadata: influencerData.metadata ? {
                 metaTitle: influencerData.metadata.title || influencerData.name,
