@@ -623,6 +623,65 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDynamicPageDynamicPage extends Struct.CollectionTypeSchema {
+  collectionName: 'dynamic_pages';
+  info: {
+    displayName: 'Dynamic Page';
+    pluralName: 'dynamic-pages';
+    singularName: 'dynamic-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dynamic-page.dynamic-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Sections: Schema.Attribute.DynamicZone<
+      [
+        'dynamic-lp.why-section',
+        'dynamic-lp.track-your-progress-section',
+        'dynamic-lp.testimonial-section',
+        'dynamic-lp.pricing-section',
+        'dynamic-lp.maps-section',
+        'dynamic-lp.how-it-works-section',
+        'dynamic-lp.default-hero',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    why_sections: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::why-section.why-section'
+    >;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -734,6 +793,76 @@ export interface ApiInfluencerInfluencer extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWhySectionWhySection extends Struct.CollectionTypeSchema {
+  collectionName: 'why_sections';
+  info: {
+    displayName: 'Why Section';
+    pluralName: 'why-sections';
+    singularName: 'why-section';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamic_pages: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::dynamic-page.dynamic-page'
+    >;
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::why-section.why-section'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    recommendations: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    results: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    signals: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1254,8 +1383,10 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::dynamic-page.dynamic-page': ApiDynamicPageDynamicPage;
       'api::global.global': ApiGlobalGlobal;
       'api::influencer.influencer': ApiInfluencerInfluencer;
+      'api::why-section.why-section': ApiWhySectionWhySection;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

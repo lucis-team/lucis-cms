@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dynamic_pages",
+  "info": {
+    "singularName": "dynamic-page",
+    "pluralName": "dynamic-pages",
+    "displayName": "Dynamic Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "url": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "unique": true
+    },
+    "Sections": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "dynamic-lp.why-section",
+        "dynamic-lp.track-your-progress-section",
+        "dynamic-lp.testimonial-section",
+        "dynamic-lp.pricing-section",
+        "dynamic-lp.maps-section",
+        "dynamic-lp.how-it-works-section",
+        "dynamic-lp.default-hero"
+      ]
+    },
+    "why_sections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::why-section.why-section",
+      "inversedBy": "dynamic_pages"
+    }
+  }
+}

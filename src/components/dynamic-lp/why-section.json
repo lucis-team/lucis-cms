@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_dynamic_lp_why_sections",
+  "info": {
+    "displayName": "Why Section"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
