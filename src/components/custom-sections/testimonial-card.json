@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_custom_sections_testimonial_cards",
+  "info": {
+    "displayName": "Testimonial Card",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "ageCityText": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

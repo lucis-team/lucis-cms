@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_custom_sections_pain_resolution_cards",
+  "info": {
+    "displayName": "Pain Resolution Card",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "signals": {
+      "type": "string",
+      "required": true
+    },
+    "recommendations": {
+      "type": "string",
+      "required": true
+    },
+    "results": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

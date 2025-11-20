@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_dynamic_lp_why_sections",
+  "info": {
+    "displayName": "Why Section"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "painCards": {
+      "type": "component",
+      "component": "custom-sections.pain-resolution-card",
+      "repeatable": true,
+      "required": true,
+      "min": 3
+    }
+  },
+  "config": {}
+}
