@@ -1,5 +1,97 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CustomSectionsTestimonialCard extends Struct.ComponentSchema {
+  collectionName: 'components_custom_sections_testimonial_cards';
+  info: {
+    displayName: 'Testimonial Card';
+    icon: 'alien';
+  };
+  attributes: {
+    ageCityText: Schema.Attribute.String & Schema.Attribute.Required;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DynamicLpDefaultHero extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_default_heroes';
+  info: {
+    displayName: 'Default Hero';
+    icon: 'code';
+  };
+  attributes: {
+    subtext: Schema.Attribute.Text & Schema.Attribute.Required;
+    tagline: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DynamicLpHowItWorksSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_how_it_works_sections';
+  info: {
+    displayName: 'How it works Section';
+    icon: 'clock';
+  };
+  attributes: {};
+}
+
+export interface DynamicLpMapsSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_maps_sections';
+  info: {
+    displayName: 'Maps Section';
+    icon: 'pinMap';
+  };
+  attributes: {};
+}
+
+export interface DynamicLpPricingSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_pricing_sections';
+  info: {
+    displayName: 'Pricing Section';
+    icon: 'priceTag';
+  };
+  attributes: {};
+}
+
+export interface DynamicLpTestimonialSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_testimonial_sections';
+  info: {
+    displayName: 'Testimonial Section';
+    icon: 'crown';
+  };
+  attributes: {
+    testimonial2: Schema.Attribute.Component<
+      'custom-sections.testimonial-card',
+      false
+    >;
+    testiomnial1: Schema.Attribute.Component<
+      'custom-sections.testimonial-card',
+      false
+    >;
+  };
+}
+
+export interface DynamicLpTrackYourProgressSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_track_your_progress_sections';
+  info: {
+    displayName: 'Track your progress Section';
+    icon: 'arrowUp';
+  };
+  attributes: {};
+}
+
+export interface DynamicLpWhySection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_why_sections';
+  info: {
+    displayName: 'Why Section';
+  };
+  attributes: {
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedCustomCta extends Struct.ComponentSchema {
   collectionName: 'components_shared_custom_ctas';
   info: {
@@ -77,6 +169,14 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'custom-sections.testimonial-card': CustomSectionsTestimonialCard;
+      'dynamic-lp.default-hero': DynamicLpDefaultHero;
+      'dynamic-lp.how-it-works-section': DynamicLpHowItWorksSection;
+      'dynamic-lp.maps-section': DynamicLpMapsSection;
+      'dynamic-lp.pricing-section': DynamicLpPricingSection;
+      'dynamic-lp.testimonial-section': DynamicLpTestimonialSection;
+      'dynamic-lp.track-your-progress-section': DynamicLpTrackYourProgressSection;
+      'dynamic-lp.why-section': DynamicLpWhySection;
       'shared.custom-cta': SharedCustomCta;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

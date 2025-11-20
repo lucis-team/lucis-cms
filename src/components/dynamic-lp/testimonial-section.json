@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_dynamic_lp_testimonial_sections",
+  "info": {
+    "displayName": "Testimonial Section",
+    "icon": "crown"
+  },
+  "options": {},
+  "attributes": {
+    "testiomnial1": {
+      "type": "component",
+      "component": "custom-sections.testimonial-card",
+      "repeatable": false
+    },
+    "testimonial2": {
+      "type": "component",
+      "component": "custom-sections.testimonial-card",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
