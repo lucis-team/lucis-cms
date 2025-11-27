@@ -834,6 +834,12 @@ export interface ApiWhySectionWhySection extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::why-section.why-section'
     >;
+    problem: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     recommendations: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -843,7 +849,6 @@ export interface ApiWhySectionWhySection extends Struct.CollectionTypeSchema {
         };
       }>;
     results: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

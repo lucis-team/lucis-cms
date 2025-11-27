@@ -63,13 +63,21 @@
           "localized": true
         }
       },
-      "required": true
+      "required": false
     },
     "dynamic_pages": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::dynamic-page.dynamic-page",
       "mappedBy": "why_sections"
+    },
+    "problem": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
