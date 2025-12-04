@@ -37,7 +37,7 @@ module.exports = ({ env }) => {
     preview: {
       enabled: true,
       config: {
-        allowedOrigins: clientUrl,
+        allowedOrigins: ["https://lucis.life", "https://www.lucis.life"],
         async handler(uid, { documentId, status }) {
           const document = await strapi.documents(uid).findOne({ documentId });
           const pathname = getPreviewPathname(uid, { document, status,previewSecret });
