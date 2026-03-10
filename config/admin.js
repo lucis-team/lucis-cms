@@ -6,7 +6,7 @@ const getPreviewPathname = (uid, { document, status, previewSecret }) => {
       return `/lp/${url}?status=${status}&secret=${previewSecret}`;
     }
     case "api::article.article": {
-      return `/blog/preview/${slug}?status=${status}&secret=${previewSecret}`;
+      return `/blog/${slug}/preview/?status=${status}&secret=${previewSecret}`;
     }
     default: {
       return null;
