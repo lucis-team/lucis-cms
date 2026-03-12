@@ -799,6 +799,79 @@ export interface ApiInfluencerInfluencer extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiWebsiteBannerWebsiteBanner extends Struct.SingleTypeSchema {
+  collectionName: 'website_banners';
+  info: {
+    displayName: 'website-banner';
+    pluralName: 'website-banners';
+    singularName: 'website-banner';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bannerCta: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    bannerText: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    floatingSmalltext: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    floatingSubtitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    floatingTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    link: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::website-banner.website-banner'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    region: Schema.Attribute.Enumeration<['eu', 'uk', 'all']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWhySectionWhySection extends Struct.CollectionTypeSchema {
   collectionName: 'why_sections';
   info: {
@@ -1391,6 +1464,7 @@ declare module '@strapi/strapi' {
       'api::dynamic-page.dynamic-page': ApiDynamicPageDynamicPage;
       'api::global.global': ApiGlobalGlobal;
       'api::influencer.influencer': ApiInfluencerInfluencer;
+      'api::website-banner.website-banner': ApiWebsiteBannerWebsiteBanner;
       'api::why-section.why-section': ApiWhySectionWhySection;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
