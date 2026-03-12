@@ -75,6 +75,14 @@
         "uk",
         "all"
       ]
+    },
+    "enabled": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

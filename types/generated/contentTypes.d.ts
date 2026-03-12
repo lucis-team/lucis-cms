@@ -830,6 +830,12 @@ export interface ApiWebsiteBannerWebsiteBanner extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    enabled: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     floatingSmalltext: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
