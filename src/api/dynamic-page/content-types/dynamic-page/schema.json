@@ -39,7 +39,8 @@
         "dynamic-lp.pricing-section",
         "dynamic-lp.maps-section",
         "dynamic-lp.how-it-works-section",
-        "dynamic-lp.default-hero"
+        "dynamic-lp.default-hero",
+        "dynamic-lp.embed-section"
       ]
     },
     "why_sections": {
@@ -47,6 +48,15 @@
       "relation": "manyToMany",
       "target": "api::why-section.why-section",
       "inversedBy": "dynamic_pages"
+    },
+    "metadata": {
+      "type": "component",
+      "component": "shared.seo",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
