@@ -13,6 +13,18 @@
     "subtext": {
       "type": "text",
       "required": true
+    },
+    "ctaPrimaryText": {
+      "type": "string"
+    },
+    "ctaPrimaryUrl": {
+      "type": "string"
+    },
+    "ctaSecondaryText": {
+      "type": "string"
+    },
+    "ctaSecondaryUrl": {
+      "type": "string"
     }
   },
   "config": {}
