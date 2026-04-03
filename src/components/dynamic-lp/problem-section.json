@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_dynamic_lp_problem_sections",
+  "info": {
+    "displayName": "Problem Section"
+  },
+  "options": {},
+  "attributes": {
+    "problems": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::problem.problem"
+    }
+  },
+  "config": {}
+}

@@ -33,30 +33,23 @@
         }
       },
       "components": [
-        "dynamic-lp.why-section",
-        "dynamic-lp.track-your-progress-section",
-        "dynamic-lp.testimonial-section",
         "dynamic-lp.pricing-section",
-        "dynamic-lp.maps-section",
-        "dynamic-lp.how-it-works-section",
-        "dynamic-lp.default-hero",
-        "dynamic-lp.embed-section"
+        "dynamic-lp.hero-section",
+        "dynamic-lp.banner-section",
+        "dynamic-lp.testimonial-section",
+        "dynamic-lp.problem-section",
+        "dynamic-lp.how-app-works-section",
+        "dynamic-lp.biomarker-section"
       ]
-    },
-    "why_sections": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::why-section.why-section",
-      "inversedBy": "dynamic_pages"
     },
     "metadata": {
       "type": "component",
-      "component": "shared.seo",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "component": "shared.seo"
     }
   }
 }

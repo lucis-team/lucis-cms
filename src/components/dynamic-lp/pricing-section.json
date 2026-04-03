@@ -5,6 +5,23 @@
     "icon": "priceTag"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "discoveryCoachName": {
+      "type": "string",
+      "required": true
+    },
+    "discoveryCoachTestimonial": {
+      "type": "string",
+      "required": true
+    },
+    "careCoachName": {
+      "type": "string",
+      "required": true
+    },
+    "careCoachTestimonial": {
+      "type": "string",
+      "required": true
+    }
+  },
   "config": {}
 }

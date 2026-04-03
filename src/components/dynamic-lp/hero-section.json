@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_dynamic_lp_hero_sections",
+  "info": {
+    "displayName": "Hero Section",
+    "icon": "brush"
+  },
+  "options": {},
+  "attributes": {
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "heroBackgroundVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files",
+        "videos"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "ctaPrimaryText": {
+      "type": "string",
+      "required": true
+    },
+    "ctaPrimaryUrl": {
+      "type": "string",
+      "required": true
+    },
+    "ctaSecondaryText": {
+      "type": "string"
+    },
+    "ctaSecondaryUrl": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

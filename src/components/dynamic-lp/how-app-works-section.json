@@ -1,14 +1,14 @@
 {
-  "collectionName": "components_dynamic_lp_testimonial_sections",
+  "collectionName": "components_dynamic_lp_how_app_works_sections",
   "info": {
-    "displayName": "Testimonial Section"
+    "displayName": "How App Works Section"
   },
   "options": {},
   "attributes": {
-    "testimonialCards": {
+    "howAppWorksCards": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::testimonial-card.testimonial-card"
+      "target": "api::how-app-works-card.how-app-works-card"
     },
     "title": {
       "type": "string",
