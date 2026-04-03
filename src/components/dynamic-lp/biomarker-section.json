@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_dynamic_lp_biomarker_sections",
+  "info": {
+    "displayName": "Biomarker Section"
+  },
+  "options": {},
+  "attributes": {
+    "biomarkerCards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::biomarker-card.biomarker-card"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

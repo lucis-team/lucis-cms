@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "how_app_works_cards",
+  "info": {
+    "singularName": "how-app-works-card",
+    "pluralName": "how-app-works-cards",
+    "displayName": "How App Works Card"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "descriptivetext": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  }
+}

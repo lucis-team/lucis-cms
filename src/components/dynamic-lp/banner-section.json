@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_dynamic_lp_banner_sections",
+  "info": {
+    "displayName": "Banner Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

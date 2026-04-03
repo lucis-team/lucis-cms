@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "why_sections",
+  "collectionName": "biomarker_cards",
   "info": {
-    "singularName": "why-section",
-    "pluralName": "why-sections",
-    "displayName": "Why Section"
+    "singularName": "biomarker-card",
+    "pluralName": "biomarker-cards",
+    "displayName": "Biomarker Card"
   },
   "options": {
     "draftAndPublish": false
@@ -15,21 +15,7 @@
     }
   },
   "attributes": {
-    "image": {
-      "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
-    "title": {
+    "explanation": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -38,7 +24,7 @@
       },
       "required": true
     },
-    "signals": {
+    "biomarkerName": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -47,7 +33,7 @@
       },
       "required": true
     },
-    "recommendations": {
+    "valueWithUnit": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -56,22 +42,14 @@
       },
       "required": true
     },
-    "results": {
+    "description": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "required": false
-    },
-    "problem": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "required": true
     }
   }
 }
