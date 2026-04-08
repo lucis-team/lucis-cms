@@ -1,0 +1,27 @@
+mcp-server/Dockerfile
+  fb47013ed801301f 1-12
+mcp-server/index.js
+  fb47013ed801301f 3-4,6,14-15,22-26,69-73,75-97,99,102-120,122,125-139,141,144-167,169,172-186,188,191-204,206,209-231,233,236-246,248,251-252,254-255,257-258,260-283,285-289,291-301,303-328,330-332,334-345,348,350-383,385-390,392-393,396-398,400-402
+mcp-server/railway.json
+  fb47013ed801301f 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "fe345166ded5014c98a8338192b1ed8af1a22f69",
+  "prompts": {
+    "fb47013ed801301f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "8583f647-6b68-4249-8a67-77d75940f437",
+        "model": "claude-4.6-sonnet-medium"
+      },
+      "human_author": "WinePine",
+      "messages": [],
+      "total_additions": 339,
+      "total_deletions": 257,
+      "accepted_lines": 339,
+      "overriden_lines": 0
+    }
+  }
+}
