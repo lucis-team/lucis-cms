@@ -1,0 +1,25 @@
+mcp-server/.dockerignore
+  f5bddcbd0c69ee68 1-6
+mcp-server/Dockerfile
+  f5bddcbd0c69ee68 6,8-11,15,17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.6",
+  "base_commit_sha": "1f17c0f9b3794f95f992268fc92faefb95fa1067",
+  "prompts": {
+    "f5bddcbd0c69ee68": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "843ce2dc-f5a3-427b-80b1-ea7b99c321ec",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Gauthier WALLET",
+      "messages": [],
+      "total_additions": 24,
+      "total_deletions": 4,
+      "accepted_lines": 15,
+      "overriden_lines": 1
+    }
+  }
+}
