@@ -1,0 +1,25 @@
+mcp-server/package.json
+  fb47013ed801301f 1-4,9
+mcp-server/index.js
+  fb47013ed801301f 1-344
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "acc2ecc25c1f7ab19aef649effea41e7f01e26d0",
+  "prompts": {
+    "fb47013ed801301f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "8583f647-6b68-4249-8a67-77d75940f437",
+        "model": "claude-4.6-sonnet-medium"
+      },
+      "human_author": "WinePine",
+      "messages": [],
+      "total_additions": 352,
+      "total_deletions": 2,
+      "accepted_lines": 349,
+      "overriden_lines": 1
+    }
+  }
+}
