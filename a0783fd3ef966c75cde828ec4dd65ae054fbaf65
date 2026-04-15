@@ -1,0 +1,23 @@
+package.json
+  991d9da2792dcfd6 20-22,33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "a0783fd3ef966c75cde828ec4dd65ae054fbaf65",
+  "prompts": {
+    "991d9da2792dcfd6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "f6717a86-393c-4a2a-ba13-a467bfd7d1a0",
+        "model": "claude-4.6-sonnet-medium"
+      },
+      "human_author": "WinePine",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 4,
+      "accepted_lines": 4,
+      "overriden_lines": 0
+    }
+  }
+}
