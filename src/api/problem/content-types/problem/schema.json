@@ -96,15 +96,6 @@
       },
       "required": true
     },
-    "whatHappensBiologically": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true
-    },
     "image": {
       "type": "media",
       "pluginOptions": {
@@ -138,6 +129,15 @@
     },
     "result": {
       "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "whatHappensBiologically": {
+      "type": "blocks",
       "pluginOptions": {
         "i18n": {
           "localized": true
