@@ -9,7 +9,7 @@
     "heroBackgroundImage": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
@@ -47,6 +47,9 @@
     },
     "description": {
       "type": "text"
+    },
+    "invertTextColor": {
+      "type": "boolean"
     }
   },
   "config": {}

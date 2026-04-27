@@ -38,9 +38,9 @@ export interface DynamicLpHeroSection extends Struct.ComponentSchema {
     ctaSecondaryText: Schema.Attribute.String;
     ctaSecondaryUrl: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    heroBackgroundImage: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    heroBackgroundImage: Schema.Attribute.Media<'images' | 'files'>;
     heroBackgroundVideo: Schema.Attribute.Media<'files' | 'videos'>;
+    invertTextColor: Schema.Attribute.Boolean;
     subtitle: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
