@@ -21,6 +21,22 @@
     "careCoachTestimonial": {
       "type": "string",
       "required": true
+    },
+    "discoveryImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "careImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

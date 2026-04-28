@@ -72,9 +72,11 @@ export interface DynamicLpPricingSection extends Struct.ComponentSchema {
   attributes: {
     careCoachName: Schema.Attribute.String & Schema.Attribute.Required;
     careCoachTestimonial: Schema.Attribute.String & Schema.Attribute.Required;
+    careImage: Schema.Attribute.Media<'images'>;
     discoveryCoachName: Schema.Attribute.String & Schema.Attribute.Required;
     discoveryCoachTestimonial: Schema.Attribute.String &
       Schema.Attribute.Required;
+    discoveryImage: Schema.Attribute.Media<'images'>;
   };
 }
 
