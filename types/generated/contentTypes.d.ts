@@ -761,8 +761,7 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    answer: Schema.Attribute.Blocks &
-      Schema.Attribute.Required &
+    answer: Schema.Attribute.Component<'shared.rich-text', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
