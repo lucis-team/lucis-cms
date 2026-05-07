@@ -1,61 +1,65 @@
-# 🚀 Getting started with Strapi
+# Lucis CMS
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+Headless CMS for the [Lucis](https://lucis.life) platform, built with [Strapi v5](https://strapi.io). Manages all content served to the Lucis web app — articles, influencer pages, biomarker cards, FAQs, testimonials, and more.
 
-### `develop`
-
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
-
-```
-npm run develop
-# or
-yarn develop
-```
-
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+**Live admin:** [cms.lucis.life/admin](https://cms.lucis.life/admin)  
+**Strapi Cloud project:** [cloud.strapi.io/projects](https://cloud.strapi.io/projects)
 
 ---
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+## Content Types
+
+| Content Type | Description |
+|---|---|
+| `article` | Blog articles with author and category relations |
+| `author` | Article authors |
+| `category` | Article categories |
+| `influencer` | Influencer landing pages with discount codes (EN/FR) |
+| `biomarker-card` | Biomarker information cards |
+| `faq` | Frequently asked questions |
+| `testimonial-card` | Customer testimonials |
+| `how-app-works-card` | Feature explanation cards |
+| `website-banner` | Promotional banners |
+| `why-section` | "Why Lucis" section content |
+| `problem` | Problem statement content |
+| `dynamic-page` | Flexible dynamic page content |
+| `global` | Global site settings and metadata |
+| `about` | About page content |
+
+Content is fully internationalised — English (`en`) and French (`fr`) locales are supported across all types.
+
+---
+
+## Getting Started
+
+**Requirements:** Node.js `>=20.x <=24.x`, npm `>=6.0.0`
+
+```bash
+# Install dependencies
+npm install
+
+# Start in development mode (with auto-reload)
+npm run develop
+
+# Build the admin panel
+npm run build
+
+# Start in production mode
+npm start
+```
+
+---
+
+## Deployment
+
+This project is deployed via [Strapi Cloud](https://cloud.strapi.io/projects). Every new commit pushed to `main` is automatically deployed to production at [cms.lucis.life/admin](https://cms.lucis.life/admin).
+
+---
+
+## Tech Stack
+
+- **Strapi v5** — headless CMS framework
+- **SQLite** (`better-sqlite3`) — local development database
+- **i18n** — built-in Strapi internationalisation (EN/FR)
+- **Users & Permissions plugin** — API authentication and role management
+- **Strapi Cloud plugin** — deployment integration
