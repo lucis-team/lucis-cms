@@ -9,12 +9,7 @@
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
-    "strapi": "strapi",
-    "import:influencers": "node scripts/import-influencers.js",
-    "import:influencers:dry": "DRY_RUN=true node scripts/import-influencers.js",
-    "import:influencers:publish": "AUTO_PUBLISH=true node scripts/import-influencers.js",
-    "cleanup:influencers": "node scripts/cleanup-influencers.js",
-    "verify:influencers": "node scripts/verify-influencers.js"
+    "strapi": "strapi"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.42.0",
