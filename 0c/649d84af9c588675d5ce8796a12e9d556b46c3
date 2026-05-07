@@ -1,0 +1,22 @@
+README.md
+  s_2fe92cfcaa7c9c::t_9f19ad28a95124 1,3,5-6,8,10-29,31,33,35,37-39,41-42,44,47-48,51,53,59-65
+  s_2fe92cfcaa7c9c::t_167518f889628c 55
+package.json
+  s_2fe92cfcaa7c9c::t_582bff9ae35476 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.1",
+  "base_commit_sha": "0c649d84af9c588675d5ce8796a12e9d556b46c3",
+  "prompts": {},
+  "sessions": {
+    "s_2fe92cfcaa7c9c": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "30d0520c-6624-4f84-b55c-8697fed37e7d",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "WinePine <basitsaeed1@gmail.com>"
+    }
+  }
+}
