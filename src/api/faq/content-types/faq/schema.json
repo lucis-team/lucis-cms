@@ -25,13 +25,14 @@
       "required": true
     },
     "answer": {
-      "type": "blocks",
+      "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "required": true
+      "component": "shared.rich-text",
+      "repeatable": false
     }
   }
 }
