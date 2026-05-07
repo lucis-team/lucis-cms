@@ -723,6 +723,7 @@ export interface ApiDynamicPageDynamicPage extends Struct.CollectionTypeSchema {
         'dynamic-lp.problem-section',
         'dynamic-lp.how-app-works-section',
         'dynamic-lp.biomarker-section',
+        'dynamic-lp.faqs-section',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -741,6 +742,48 @@ export interface ApiDynamicPageDynamicPage extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
+  };
+}
+
+export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    displayName: 'FAQ';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    answer: Schema.Attribute.Blocks &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1770,6 +1813,7 @@ declare module '@strapi/strapi' {
       'api::biomarker-card.biomarker-card': ApiBiomarkerCardBiomarkerCard;
       'api::category.category': ApiCategoryCategory;
       'api::dynamic-page.dynamic-page': ApiDynamicPageDynamicPage;
+      'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
       'api::how-app-works-card.how-app-works-card': ApiHowAppWorksCardHowAppWorksCard;
       'api::influencer.influencer': ApiInfluencerInfluencer;

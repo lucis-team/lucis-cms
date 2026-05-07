@@ -26,6 +26,16 @@ export interface DynamicLpBiomarkerSection extends Struct.ComponentSchema {
   };
 }
 
+export interface DynamicLpFaqsSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_faqs_sections';
+  info: {
+    displayName: 'Faqs Section';
+  };
+  attributes: {
+    faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+  };
+}
+
 export interface DynamicLpHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_lp_hero_sections';
   info: {
@@ -186,6 +196,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'dynamic-lp.banner-section': DynamicLpBannerSection;
       'dynamic-lp.biomarker-section': DynamicLpBiomarkerSection;
+      'dynamic-lp.faqs-section': DynamicLpFaqsSection;
       'dynamic-lp.hero-section': DynamicLpHeroSection;
       'dynamic-lp.how-app-works-section': DynamicLpHowAppWorksSection;
       'dynamic-lp.pricing-section': DynamicLpPricingSection;

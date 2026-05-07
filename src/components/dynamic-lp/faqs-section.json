@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_dynamic_lp_faqs_sections",
+  "info": {
+    "displayName": "Faqs Section"
+  },
+  "options": {},
+  "attributes": {
+    "faqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq"
+    }
+  },
+  "config": {}
+}
