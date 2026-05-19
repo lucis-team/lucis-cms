@@ -73,6 +73,32 @@ export interface DynamicLpHowAppWorksSection extends Struct.ComponentSchema {
   };
 }
 
+export interface DynamicLpHowItWorksSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_how_it_works_sections';
+  info: {
+    displayName: 'How It Works Section';
+  };
+  attributes: {};
+}
+
+export interface DynamicLpOfferHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_offer_hero_sections';
+  info: {
+    displayName: 'Offer Hero Section';
+  };
+  attributes: {
+    bgImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    buy1Get1Text: Schema.Attribute.String & Schema.Attribute.Required;
+    code: Schema.Attribute.String & Schema.Attribute.Required;
+    getTheOfferLink: Schema.Attribute.String & Schema.Attribute.Required;
+    priceCare: Schema.Attribute.String & Schema.Attribute.Required;
+    priceDiscovery: Schema.Attribute.String & Schema.Attribute.Required;
+    priceOriginalDiscovery: Schema.Attribute.String & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface DynamicLpPricingSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_lp_pricing_sections';
   info: {
@@ -115,6 +141,23 @@ export interface DynamicLpTestimonialSection extends Struct.ComponentSchema {
     >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
+}
+
+export interface DynamicLpThreeCardsOfferingSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_three_cards_offering_sections';
+  info: {
+    displayName: 'Three Cards Offering Section';
+  };
+  attributes: {};
+}
+
+export interface DynamicLpWhatWeTestSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_what_we_test_sections';
+  info: {
+    displayName: 'What We Test Section';
+  };
+  attributes: {};
 }
 
 export interface SharedCustomCta extends Struct.ComponentSchema {
@@ -199,9 +242,13 @@ declare module '@strapi/strapi' {
       'dynamic-lp.faqs-section': DynamicLpFaqsSection;
       'dynamic-lp.hero-section': DynamicLpHeroSection;
       'dynamic-lp.how-app-works-section': DynamicLpHowAppWorksSection;
+      'dynamic-lp.how-it-works-section': DynamicLpHowItWorksSection;
+      'dynamic-lp.offer-hero-section': DynamicLpOfferHeroSection;
       'dynamic-lp.pricing-section': DynamicLpPricingSection;
       'dynamic-lp.problem-section': DynamicLpProblemSection;
       'dynamic-lp.testimonial-section': DynamicLpTestimonialSection;
+      'dynamic-lp.three-cards-offering-section': DynamicLpThreeCardsOfferingSection;
+      'dynamic-lp.what-we-test-section': DynamicLpWhatWeTestSection;
       'shared.custom-cta': SharedCustomCta;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

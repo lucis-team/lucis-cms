@@ -40,7 +40,8 @@
         "dynamic-lp.problem-section",
         "dynamic-lp.how-app-works-section",
         "dynamic-lp.biomarker-section",
-        "dynamic-lp.faqs-section"
+        "dynamic-lp.faqs-section",
+        "dynamic-lp.offer-hero-section"
       ]
     },
     "metadata": {

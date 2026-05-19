@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_dynamic_lp_offer_hero_sections",
+  "info": {
+    "displayName": "Offer Hero Section"
+  },
+  "options": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "bgImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "buy1Get1Text": {
+      "type": "string",
+      "required": true
+    },
+    "getTheOfferLink": {
+      "type": "string",
+      "required": true
+    },
+    "priceCare": {
+      "type": "string",
+      "required": true
+    },
+    "priceDiscovery": {
+      "type": "string",
+      "required": true
+    },
+    "priceOriginalDiscovery": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

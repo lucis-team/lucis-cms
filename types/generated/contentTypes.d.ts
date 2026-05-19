@@ -724,6 +724,7 @@ export interface ApiDynamicPageDynamicPage extends Struct.CollectionTypeSchema {
         'dynamic-lp.how-app-works-section',
         'dynamic-lp.biomarker-section',
         'dynamic-lp.faqs-section',
+        'dynamic-lp.offer-hero-section',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
