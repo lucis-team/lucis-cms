@@ -90,10 +90,16 @@ export interface DynamicLpOfferHeroSection extends Struct.ComponentSchema {
     bgImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     buy1Get1Text: Schema.Attribute.String & Schema.Attribute.Required;
     code: Schema.Attribute.String & Schema.Attribute.Required;
+    firstOfferItems: Schema.Attribute.String & Schema.Attribute.Required;
+    firstOfferSubtext: Schema.Attribute.String & Schema.Attribute.Required;
+    firstOfferText: Schema.Attribute.String & Schema.Attribute.Required;
     getTheOfferLink: Schema.Attribute.String & Schema.Attribute.Required;
     priceCare: Schema.Attribute.String & Schema.Attribute.Required;
     priceDiscovery: Schema.Attribute.String & Schema.Attribute.Required;
     priceOriginalDiscovery: Schema.Attribute.String & Schema.Attribute.Required;
+    secondOfferItems: Schema.Attribute.String & Schema.Attribute.Required;
+    secondOfferSubtext: Schema.Attribute.String & Schema.Attribute.Required;
+    secondOfferText: Schema.Attribute.String & Schema.Attribute.Required;
     subtitle: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };

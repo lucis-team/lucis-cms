@@ -44,6 +44,30 @@
     "priceOriginalDiscovery": {
       "type": "string",
       "required": true
+    },
+    "firstOfferSubtext": {
+      "type": "string",
+      "required": true
+    },
+    "firstOfferText": {
+      "type": "string",
+      "required": true
+    },
+    "secondOfferSubtext": {
+      "type": "string",
+      "required": true
+    },
+    "secondOfferText": {
+      "type": "string",
+      "required": true
+    },
+    "firstOfferItems": {
+      "type": "string",
+      "required": true
+    },
+    "secondOfferItems": {
+      "type": "string",
+      "required": true
     }
   },
   "config": {}
