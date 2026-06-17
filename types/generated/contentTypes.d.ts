@@ -953,6 +953,86 @@ export interface ApiInfluencerInfluencer extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPersonaPagePersonaPage extends Struct.CollectionTypeSchema {
+  collectionName: 'persona_pages';
+  info: {
+    displayName: 'Persona Page';
+    pluralName: 'persona-pages';
+    singularName: 'persona-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::persona-page.persona-page'
+    >;
+    metadata: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    navSubtitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    navTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<
+      [
+        'dynamic-lp.what-we-test-section',
+        'dynamic-lp.three-cards-offering-section',
+        'dynamic-lp.testimonial-section',
+        'dynamic-lp.problem-section',
+        'dynamic-lp.pricing-section',
+        'dynamic-lp.persona-hero-section',
+        'dynamic-lp.offer-hero-section',
+        'dynamic-lp.how-it-works-section',
+        'dynamic-lp.how-app-works-section',
+        'dynamic-lp.hero-section',
+        'dynamic-lp.faqs-section',
+        'dynamic-lp.biomarker-section',
+        'dynamic-lp.banner-section',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProblemProblem extends Struct.CollectionTypeSchema {
   collectionName: 'problems';
   info: {
@@ -1820,6 +1900,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::how-app-works-card.how-app-works-card': ApiHowAppWorksCardHowAppWorksCard;
       'api::influencer.influencer': ApiInfluencerInfluencer;
+      'api::persona-page.persona-page': ApiPersonaPagePersonaPage;
       'api::problem.problem': ApiProblemProblem;
       'api::testimonial-card.testimonial-card': ApiTestimonialCardTestimonialCard;
       'api::website-banner.website-banner': ApiWebsiteBannerWebsiteBanner;

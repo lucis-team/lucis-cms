@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "persona_pages",
+  "info": {
+    "singularName": "persona-page",
+    "pluralName": "persona-pages",
+    "displayName": "Persona Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true
+    },
+    "navTitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "navSubtitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "dynamic-lp.what-we-test-section",
+        "dynamic-lp.three-cards-offering-section",
+        "dynamic-lp.testimonial-section",
+        "dynamic-lp.problem-section",
+        "dynamic-lp.pricing-section",
+        "dynamic-lp.persona-hero-section",
+        "dynamic-lp.offer-hero-section",
+        "dynamic-lp.how-it-works-section",
+        "dynamic-lp.how-app-works-section",
+        "dynamic-lp.hero-section",
+        "dynamic-lp.faqs-section",
+        "dynamic-lp.biomarker-section",
+        "dynamic-lp.banner-section"
+      ]
+    },
+    "metadata": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
