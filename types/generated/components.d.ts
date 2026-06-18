@@ -105,6 +105,18 @@ export interface DynamicLpOfferHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface DynamicLpPersonaHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_persona_hero_sections';
+  info: {
+    displayName: 'Persona Hero Section';
+  };
+  attributes: {
+    subtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    video: Schema.Attribute.Media<'videos'> & Schema.Attribute.Required;
+  };
+}
+
 export interface DynamicLpPricingSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_lp_pricing_sections';
   info: {
@@ -250,6 +262,7 @@ declare module '@strapi/strapi' {
       'dynamic-lp.how-app-works-section': DynamicLpHowAppWorksSection;
       'dynamic-lp.how-it-works-section': DynamicLpHowItWorksSection;
       'dynamic-lp.offer-hero-section': DynamicLpOfferHeroSection;
+      'dynamic-lp.persona-hero-section': DynamicLpPersonaHeroSection;
       'dynamic-lp.pricing-section': DynamicLpPricingSection;
       'dynamic-lp.problem-section': DynamicLpProblemSection;
       'dynamic-lp.testimonial-section': DynamicLpTestimonialSection;

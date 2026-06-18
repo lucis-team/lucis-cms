@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_dynamic_lp_persona_hero_sections",
+  "info": {
+    "displayName": "Persona Hero Section"
+  },
+  "options": {},
+  "attributes": {
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}
