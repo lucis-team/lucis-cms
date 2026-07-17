@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_dynamic_lp_benefit_items",
+  "info": {
+    "displayName": "Benefit Item",
+    "description": "Single row in the Benefits List section (title + short description)"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

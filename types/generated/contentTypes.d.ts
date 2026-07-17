@@ -249,6 +249,7 @@ export interface AdminSession extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::session'> &
       Schema.Attribute.Private;
+    metadata: Schema.Attribute.JSON & Schema.Attribute.Private;
     origin: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Private;
@@ -738,6 +739,8 @@ export interface ApiDynamicPageDynamicPage extends Struct.CollectionTypeSchema {
         'dynamic-lp.what-we-test-section',
         'dynamic-lp.three-cards-offering-section',
         'dynamic-lp.how-it-works-section',
+        'dynamic-lp.benefits-list-section',
+        'dynamic-lp.value-props-section',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

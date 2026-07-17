@@ -11,6 +11,32 @@ export interface DynamicLpBannerSection extends Struct.ComponentSchema {
   };
 }
 
+export interface DynamicLpBenefitItem extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_benefit_items';
+  info: {
+    description: 'Single row in the Benefits List section (title + short description)';
+    displayName: 'Benefit Item';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DynamicLpBenefitsListSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_benefits_list_sections';
+  info: {
+    description: 'Heading followed by a repeatable list of benefit rows (e.g. "Lucis vous aide \u00E0 :")';
+    displayName: 'Benefits List Section';
+  };
+  attributes: {
+    benefits: Schema.Attribute.Component<'dynamic-lp.benefit-item', true>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Lucis vous aide \u00E0 :'>;
+  };
+}
+
 export interface DynamicLpBiomarkerSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_lp_biomarker_sections';
   info: {
@@ -170,6 +196,40 @@ export interface DynamicLpThreeCardsOfferingSection
   attributes: {};
 }
 
+export interface DynamicLpValuePropItem extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_value_prop_items';
+  info: {
+    description: 'Single column in the Value Props section (title + short description)';
+    displayName: 'Value Prop Item';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DynamicLpValuePropsSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_value_props_sections';
+  info: {
+    description: 'Row of value-proposition columns with an optional trust bar (members count + rating)';
+    displayName: 'Value Props Section';
+  };
+  attributes: {
+    membersLabel: Schema.Attribute.String;
+    ratingLabel: Schema.Attribute.String;
+    ratingStars: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
+    valueProps: Schema.Attribute.Component<'dynamic-lp.value-prop-item', true>;
+  };
+}
+
 export interface DynamicLpWhatWeTestSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_lp_what_we_test_sections';
   info: {
@@ -256,6 +316,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'dynamic-lp.banner-section': DynamicLpBannerSection;
+      'dynamic-lp.benefit-item': DynamicLpBenefitItem;
+      'dynamic-lp.benefits-list-section': DynamicLpBenefitsListSection;
       'dynamic-lp.biomarker-section': DynamicLpBiomarkerSection;
       'dynamic-lp.faqs-section': DynamicLpFaqsSection;
       'dynamic-lp.hero-section': DynamicLpHeroSection;
@@ -267,6 +329,8 @@ declare module '@strapi/strapi' {
       'dynamic-lp.problem-section': DynamicLpProblemSection;
       'dynamic-lp.testimonial-section': DynamicLpTestimonialSection;
       'dynamic-lp.three-cards-offering-section': DynamicLpThreeCardsOfferingSection;
+      'dynamic-lp.value-prop-item': DynamicLpValuePropItem;
+      'dynamic-lp.value-props-section': DynamicLpValuePropsSection;
       'dynamic-lp.what-we-test-section': DynamicLpWhatWeTestSection;
       'shared.custom-cta': SharedCustomCta;
       'shared.media': SharedMedia;

@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_dynamic_lp_value_props_sections",
+  "info": {
+    "displayName": "Value Props Section",
+    "description": "Row of value-proposition columns with an optional trust bar (members count + rating)"
+  },
+  "options": {},
+  "attributes": {
+    "valueProps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "dynamic-lp.value-prop-item"
+    },
+    "membersLabel": {
+      "type": "string"
+    },
+    "ratingLabel": {
+      "type": "string"
+    },
+    "ratingStars": {
+      "type": "integer",
+      "default": 5,
+      "min": 0,
+      "max": 5
+    }
+  }
+}

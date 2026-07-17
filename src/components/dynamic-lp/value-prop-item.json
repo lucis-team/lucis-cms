@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_dynamic_lp_value_prop_items",
+  "info": {
+    "displayName": "Value Prop Item",
+    "description": "Single column in the Value Props section (title + short description)"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

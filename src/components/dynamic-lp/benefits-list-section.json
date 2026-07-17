@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_dynamic_lp_benefits_list_sections",
+  "info": {
+    "displayName": "Benefits List Section",
+    "description": "Heading followed by a repeatable list of benefit rows (e.g. \"Lucis vous aide à :\")"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Lucis vous aide à :"
+    },
+    "benefits": {
+      "type": "component",
+      "repeatable": true,
+      "component": "dynamic-lp.benefit-item"
+    }
+  }
+}
