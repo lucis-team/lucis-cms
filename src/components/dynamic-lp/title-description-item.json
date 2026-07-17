@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_dynamic_lp_benefit_items",
+  "collectionName": "components_dynamic_lp_title_description_items",
   "info": {
-    "displayName": "Benefit Item",
-    "description": "Single row in the Benefits List section (title + short description)"
+    "displayName": "Title Description Item",
+    "description": "Reusable row/column with a title and a short description"
   },
   "options": {},
   "attributes": {

@@ -9,7 +9,7 @@
     "valueProps": {
       "type": "component",
       "repeatable": true,
-      "component": "dynamic-lp.value-prop-item"
+      "component": "dynamic-lp.title-description-item"
     },
     "membersLabel": {
       "type": "string"

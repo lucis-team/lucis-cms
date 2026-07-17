@@ -14,7 +14,7 @@
     "benefits": {
       "type": "component",
       "repeatable": true,
-      "component": "dynamic-lp.benefit-item"
+      "component": "dynamic-lp.title-description-item"
     }
   }
 }
