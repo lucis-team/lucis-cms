@@ -741,6 +741,7 @@ export interface ApiDynamicPageDynamicPage extends Struct.CollectionTypeSchema {
         'dynamic-lp.how-it-works-section',
         'dynamic-lp.benefits-list-section',
         'dynamic-lp.value-props-section',
+        'dynamic-lp.offer-pricing-section',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

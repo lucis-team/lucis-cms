@@ -52,6 +52,17 @@ export interface DynamicLpBiomarkerSection extends Struct.ComponentSchema {
   };
 }
 
+export interface DynamicLpCheckItem extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_check_items';
+  info: {
+    description: 'Single checklist line (label) with a check mark';
+    displayName: 'Check Item';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface DynamicLpFaqsSection extends Struct.ComponentSchema {
   collectionName: 'components_dynamic_lp_faqs_sections';
   info: {
@@ -78,6 +89,8 @@ export interface DynamicLpHeroSection extends Struct.ComponentSchema {
     heroBackgroundVideo: Schema.Attribute.Media<'files' | 'videos'>;
     invertTextColor: Schema.Attribute.Boolean;
     subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    testimonialAvatars: Schema.Attribute.Media<'images', true>;
+    testimonialText: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -127,6 +140,31 @@ export interface DynamicLpOfferHeroSection extends Struct.ComponentSchema {
     secondOfferSubtext: Schema.Attribute.String & Schema.Attribute.Required;
     secondOfferText: Schema.Attribute.String & Schema.Attribute.Required;
     subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DynamicLpOfferPricingSection extends Struct.ComponentSchema {
+  collectionName: 'components_dynamic_lp_offer_pricing_sections';
+  info: {
+    description: 'Dark pricing card with plan, price, feature checklist, CTA, lab link and disclaimer';
+    displayName: 'Offer Pricing Section';
+  };
+  attributes: {
+    ctaText: Schema.Attribute.String;
+    ctaUrl: Schema.Attribute.String;
+    disclaimer: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Lucis ne remplace pas un avis m\u00E9dical. Nos contenus sont \u00E9ducatifs et ne constituent ni un diagnostic ni une prescription. En cas de doute, nous vous invitons \u00E0 consulter un professionnel de sant\u00E9.'>;
+    features: Schema.Attribute.Component<'dynamic-lp.check-item', true>;
+    footnote: Schema.Attribute.String;
+    originalPrice: Schema.Attribute.String;
+    planLabel: Schema.Attribute.String;
+    planName: Schema.Attribute.String & Schema.Attribute.Required;
+    price: Schema.Attribute.String & Schema.Attribute.Required;
+    priceEquivalent: Schema.Attribute.String;
+    pricePeriod: Schema.Attribute.String;
+    secondaryText: Schema.Attribute.String;
+    secondaryUrl: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -319,11 +357,13 @@ declare module '@strapi/strapi' {
       'dynamic-lp.benefit-item': DynamicLpBenefitItem;
       'dynamic-lp.benefits-list-section': DynamicLpBenefitsListSection;
       'dynamic-lp.biomarker-section': DynamicLpBiomarkerSection;
+      'dynamic-lp.check-item': DynamicLpCheckItem;
       'dynamic-lp.faqs-section': DynamicLpFaqsSection;
       'dynamic-lp.hero-section': DynamicLpHeroSection;
       'dynamic-lp.how-app-works-section': DynamicLpHowAppWorksSection;
       'dynamic-lp.how-it-works-section': DynamicLpHowItWorksSection;
       'dynamic-lp.offer-hero-section': DynamicLpOfferHeroSection;
+      'dynamic-lp.offer-pricing-section': DynamicLpOfferPricingSection;
       'dynamic-lp.persona-hero-section': DynamicLpPersonaHeroSection;
       'dynamic-lp.pricing-section': DynamicLpPricingSection;
       'dynamic-lp.problem-section': DynamicLpProblemSection;

@@ -1,0 +1,58 @@
+{
+  "collectionName": "components_dynamic_lp_offer_pricing_sections",
+  "info": {
+    "displayName": "Offer Pricing Section",
+    "description": "Dark pricing card with plan, price, feature checklist, CTA, lab link and disclaimer"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "planLabel": {
+      "type": "string"
+    },
+    "planName": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "string",
+      "required": true
+    },
+    "originalPrice": {
+      "type": "string"
+    },
+    "pricePeriod": {
+      "type": "string"
+    },
+    "priceEquivalent": {
+      "type": "string"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "dynamic-lp.check-item"
+    },
+    "ctaText": {
+      "type": "string"
+    },
+    "ctaUrl": {
+      "type": "string"
+    },
+    "secondaryText": {
+      "type": "string"
+    },
+    "secondaryUrl": {
+      "type": "string"
+    },
+    "footnote": {
+      "type": "string"
+    },
+    "disclaimer": {
+      "type": "text",
+      "default": "Lucis ne remplace pas un avis médical. Nos contenus sont éducatifs et ne constituent ni un diagnostic ni une prescription. En cas de doute, nous vous invitons à consulter un professionnel de santé."
+    }
+  }
+}
