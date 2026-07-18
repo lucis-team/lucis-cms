@@ -50,6 +50,17 @@
     },
     "invertTextColor": {
       "type": "boolean"
+    },
+    "testimonialText": {
+      "type": "string"
+    },
+    "testimonialAvatars": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

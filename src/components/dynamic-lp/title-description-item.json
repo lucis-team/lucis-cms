@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_dynamic_lp_title_description_items",
+  "info": {
+    "displayName": "Title Description Item",
+    "description": "Reusable row/column with a title and a short description"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

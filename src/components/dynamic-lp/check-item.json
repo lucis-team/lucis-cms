@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_dynamic_lp_check_items",
+  "info": {
+    "displayName": "Check Item",
+    "description": "Single checklist line (label) with a check mark"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

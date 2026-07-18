@@ -44,7 +44,10 @@
         "dynamic-lp.offer-hero-section",
         "dynamic-lp.what-we-test-section",
         "dynamic-lp.three-cards-offering-section",
-        "dynamic-lp.how-it-works-section"
+        "dynamic-lp.how-it-works-section",
+        "dynamic-lp.benefits-list-section",
+        "dynamic-lp.value-props-section",
+        "dynamic-lp.offer-pricing-section"
       ]
     },
     "metadata": {
