@@ -22,6 +22,17 @@
       "default": 5,
       "min": 0,
       "max": 5
+    },
+    "ratingLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "ratingLink": {
+      "type": "string"
     }
   }
 }

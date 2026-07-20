@@ -246,6 +246,8 @@ export interface DynamicLpValuePropsSection extends Struct.ComponentSchema {
   attributes: {
     membersLabel: Schema.Attribute.String;
     ratingLabel: Schema.Attribute.String;
+    ratingLink: Schema.Attribute.String;
+    ratingLogo: Schema.Attribute.Media<'images'>;
     ratingStars: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
