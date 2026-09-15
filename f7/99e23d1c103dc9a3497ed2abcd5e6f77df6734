@@ -1,0 +1,21 @@
+src/components/dynamic-lp/offer-hero-section.json
+  s_d69d2c271b97ca::t_0d930937b40a7a 71-73
+types/generated/components.d.ts
+  s_d69d2c271b97ca::t_587084d26c84cc 126
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f799e23d1c103dc9a3497ed2abcd5e6f77df6734",
+  "prompts": {},
+  "sessions": {
+    "s_d69d2c271b97ca": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f7b23a09-08cf-4eb7-b5e5-daebda8d4a8a",
+        "model": "unknown"
+      },
+      "human_author": "WinePine <basitsaeed1@gmail.com>"
+    }
+  }
+}
