@@ -123,6 +123,7 @@ export interface DynamicLpOfferHeroSection extends Struct.ComponentSchema {
     firstOfferItems: Schema.Attribute.String & Schema.Attribute.Required;
     firstOfferSubtext: Schema.Attribute.String & Schema.Attribute.Required;
     firstOfferText: Schema.Attribute.String & Schema.Attribute.Required;
+    freeTextReplacement: Schema.Attribute.String;
     getTheOfferLink: Schema.Attribute.String & Schema.Attribute.Required;
     priceCare: Schema.Attribute.String & Schema.Attribute.Required;
     priceDiscovery: Schema.Attribute.String & Schema.Attribute.Required;
