@@ -68,6 +68,9 @@
     "secondOfferItems": {
       "type": "string",
       "required": true
+    },
+    "freeTextReplacement": {
+      "type": "string"
     }
   },
   "config": {}
