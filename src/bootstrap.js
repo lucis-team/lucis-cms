@@ -269,6 +269,50 @@ async function main() {
 }
 
 
+const SEGMENTATION_OPTIONS = {
+  'api::audience.audience': ['female_under_40', 'female_40_plus', 'male_under_50', 'male_50_plus'],
+  'api::topic.topic': [
+    'sleep',
+    'nutrition',
+    'exercise',
+    'stress',
+    'energy',
+    'hormones',
+    'longevity',
+    'weight',
+    'gut_health',
+    'cognitive_performance',
+    'recovery',
+  ],
+  'api::season-month.season-month': [
+    'january',
+    'february',
+    'march',
+    'april',
+    'may',
+    'june',
+    'july',
+    'august',
+    'september',
+    'october',
+    'november',
+    'december',
+  ],
+};
+
+async function seedSegmentationOptions() {
+  for (const [uid, codes] of Object.entries(SEGMENTATION_OPTIONS)) {
+    for (const code of codes) {
+      const existing = await strapi.db.query(uid).findOne({ where: { code } });
+      if (!existing) {
+        const name = code.replace(/_/g, ' ').replace(/^./, (c) => c.toUpperCase());
+        await strapi.db.query(uid).create({ data: { code, name } });
+      }
+    }
+  }
+}
+
 module.exports = async () => {
   await seedExampleApp();
+  await seedSegmentationOptions();
 };
