@@ -249,6 +249,7 @@ export interface AdminSession extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::session'> &
       Schema.Attribute.Private;
+    metadata: Schema.Attribute.JSON & Schema.Attribute.Private;
     origin: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Private;
@@ -486,6 +487,10 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    audiences: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::audience.audience'
+    >;
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     blocks: Schema.Attribute.DynamicZone<
       ['shared.custom-cta', 'shared.rich-text']
@@ -514,12 +519,28 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 80;
       }>;
+    format: Schema.Attribute.Enumeration<
+      ['biomarkers', 'understand', 'act', 'news']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::article.article'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seasonMonths: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::season-month.season-month'
+    >;
+    seriesPreviousPart: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::article.article'
+    >;
     slug: Schema.Attribute.UID<'title'>;
     thumbnailPhoto: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.SetPluginOptions<{
@@ -533,6 +554,44 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    topics: Schema.Attribute.Relation<'manyToMany', 'api::topic.topic'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAudienceAudience extends Struct.CollectionTypeSchema {
+  collectionName: 'audiences';
+  info: {
+    description: 'Audience values used to segment articles';
+    displayName: 'Audience';
+    pluralName: 'audiences';
+    singularName: 'audience';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: false;
+    };
+  };
+  attributes: {
+    code: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::audience.audience'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1175,6 +1234,43 @@ export interface ApiProblemProblem extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSeasonMonthSeasonMonth extends Struct.CollectionTypeSchema {
+  collectionName: 'season_months';
+  info: {
+    description: 'Season month values used to segment articles';
+    displayName: 'Season month';
+    pluralName: 'season-months';
+    singularName: 'season-month';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: false;
+    };
+  };
+  attributes: {
+    code: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::season-month.season-month'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialCardTestimonialCard
   extends Struct.CollectionTypeSchema {
   collectionName: 'testimonial_cards';
@@ -1239,6 +1335,40 @@ export interface ApiTestimonialCardTestimonialCard
           localized: false;
         };
       }>;
+  };
+}
+
+export interface ApiTopicTopic extends Struct.CollectionTypeSchema {
+  collectionName: 'topics';
+  info: {
+    description: 'Topic values used to segment articles';
+    displayName: 'Topic';
+    pluralName: 'topics';
+    singularName: 'topic';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: false;
+    };
+  };
+  attributes: {
+    code: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::topic.topic'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1905,6 +2035,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
+      'api::audience.audience': ApiAudienceAudience;
       'api::author.author': ApiAuthorAuthor;
       'api::biomarker-card.biomarker-card': ApiBiomarkerCardBiomarkerCard;
       'api::category.category': ApiCategoryCategory;
@@ -1915,7 +2046,9 @@ declare module '@strapi/strapi' {
       'api::influencer.influencer': ApiInfluencerInfluencer;
       'api::persona-page.persona-page': ApiPersonaPagePersonaPage;
       'api::problem.problem': ApiProblemProblem;
+      'api::season-month.season-month': ApiSeasonMonthSeasonMonth;
       'api::testimonial-card.testimonial-card': ApiTestimonialCardTestimonialCard;
+      'api::topic.topic': ApiTopicTopic;
       'api::website-banner.website-banner': ApiWebsiteBannerWebsiteBanner;
       'api::why-section.why-section': ApiWhySectionWhySection;
       'plugin::content-releases.release': PluginContentReleasesRelease;

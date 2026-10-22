@@ -78,6 +78,40 @@
       "target": "api::category.category",
       "inversedBy": "articles"
     },
+    "format": {
+      "type": "enumeration",
+      "enum": [
+        "biomarkers",
+        "understand",
+        "act",
+        "news"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "audiences": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::audience.audience"
+    },
+    "topics": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::topic.topic"
+    },
+    "seasonMonths": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::season-month.season-month"
+    },
+    "seriesPreviousPart": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
+    },
     "blocks": {
       "type": "dynamiczone",
       "pluginOptions": {
