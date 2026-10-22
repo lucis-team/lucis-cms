@@ -1,0 +1,61 @@
+src/api/article/content-types/article/schema.json
+  s_4077f1696ed3f4::t_fdf98dd2db3c92 109-114
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 94-103,106-108
+  s_4077f1696ed3f4::t_bb15f679bb64fb 81-93,104-105
+types/generated/contentTypes.d.ts
+  s_4077f1696ed3f4::t_bb15f679bb64fb 493,522-528,539-543,557-578,591,1249-1251,1264,1353-1355
+  s_4077f1696ed3f4::t_4038769afed798 252
+  s_4077f1696ed3f4::t_eea87e4884e39f 490-492
+  s_4077f1696ed3f4::t_605f66133c5cc2 529
+  s_4077f1696ed3f4::t_9e91de86effe5a 536-538
+  s_4077f1696ed3f4::t_19afee1fb2de82 579-581,588-590
+  s_4077f1696ed3f4::t_aff3a0f687608d 592-594
+  s_4077f1696ed3f4::t_5a617960d3801f 1246-1248
+  s_4077f1696ed3f4::t_0f3a7eae820dff 1252-1254,1261-1263
+  s_4077f1696ed3f4::t_b0bd53aa8287d9 1265-1267
+  s_4077f1696ed3f4::t_d9d3d302861d6a 1350-1352
+  s_4077f1696ed3f4::t_c5863007bc0b43 1356-1358
+  s_4077f1696ed3f4::t_06c4da799047c8 582-587,1237-1245,1255-1260,1268-1273,1341-1349,1359-1374,2038,2049,2051
+src/api/audience/content-types/audience/schema.json
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-29
+src/api/season-month/services/season-month.js
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-5
+src/api/topic/routes/topic.js
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-5
+src/api/season-month/routes/season-month.js
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-5
+src/bootstrap.js
+  s_4077f1696ed3f4::t_79b2c8d9a5704f 272-314,317
+src/api/topic/services/topic.js
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-5
+src/api/audience/services/audience.js
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-5
+src/api/audience/routes/audience.js
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-5
+src/api/season-month/controllers/season-month.js
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-5
+src/api/season-month/content-types/season-month/schema.json
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-29
+src/api/topic/content-types/topic/schema.json
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-29
+src/api/audience/controllers/audience.js
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-5
+src/api/topic/controllers/topic.js
+  s_4077f1696ed3f4::t_bf86d4e56d7cde 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "719701354d23d01bcb346f6a544a568b51342f55",
+  "prompts": {},
+  "sessions": {
+    "s_4077f1696ed3f4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c353a15f-8bab-4e08-bf48-c776c0d5117f",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Basit Saeed <basitsaeed1@gmail.com>"
+    }
+  }
+}
